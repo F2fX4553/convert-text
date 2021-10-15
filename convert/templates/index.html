@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="{{url_for('static', filename = 'css/style.css')}}" rel="stylesheet"/>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <meta charset="UTF-8">
+     <meta name="Converter text" content="Convert text for bynariy system">
+    <link href="static/css/style.css">
+    <link rel="shortcut icon" type="text/css" href="static/images/favicon.ico">
+    
+    <title>Binary Conversion System</title>
+</head>
+<body>
+   <div class="myimg" ><a href="#"><img src='static/images/Sibna.png' height="30px" width="150px"></a></div>
+
+    <div class="contener">
+        <div class="title">
+                <h1>Binary Systemy</h1>
+        </div>
+        <!--<h3>Enter your number to change to binary</h3>-->
+                
+            
+                <input type="text" autofocus="text" required="text" id="user-text" placeholder="Enter Text" size="40"><br>
+            
+                
+                    <button class="button" formaction="text" onclick="convertNumber()">Convert</button>
+              
+                    <div class="outp">
+                        <pre><h4>Result : <span id="converted-Text" ></span></h4></pre>
+                    </div>
+                   
+
+    </div>
+        <script>
+            function convertNumber() {
+                $.get("/convert", {
+                    "user-text": document.getElementById("user-text").value
+                }).done(function(data) {
+                    data = JSON.parse(data) // str to dict (json)
+                   
+                    document.getElementById("converted-Text").innerHTML = data["value"]
+                    
+                });
+            }
+        </script>
+        <div class="footer">
+        <div class="containers">
+            <span>Copyright &copy; 2021-2023 Sibna Web</span>
+            <ul>
+                <li><a href="#"><img src="static/images/fb.png" target="_blank" title="Facbook" alt ="facbook"></a></li>
+                <li><a href="https://twitter.com/oussama_ben_sit"><img src="static/images/tw.png" target="_blank" title="Twitter" alt ="twitter"></a></li>
+                <li><a href="https://www.reddit.com/user/roch2443"><img src="static/images/re.png" target="_blank" title="Reddit" alt ="reddit"></a></li>
+                <li><a href="https://t.me/joinchat/4wPQZY_3UaUzNGU0"><img src="static/images/te.png" target="_blank" title="Telegram" alt ="telegram"></a></li>
+            </ul>
+            
+        </div>
+        
+    </div>
+</body>
+
+</html>
+
+</html>
